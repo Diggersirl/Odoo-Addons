@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+		<record id="project_issue_mod_form" model="ir.ui.view">
+			<field name="name">project.issue.modification.form</field>
+			<field name="model">project.issue</field>
+			<field name="inherit_id" ref="project_issue.project_issue_form_view"/>
+			<field name="arch" type="xml">
+				<xpath expr="//page[@name='extra_info']" position="after">
+					<page string="Follow Up" name="follow_up">
+						<field name="x_follow_up" />
+					</page>
+				</xpath>
+				<xpath expr="//field[@name='user_id']" position="before">
+					<field name="x_type" />
+				</xpath>
+				
+			</field>
+		</record>
+		
+		<record id="project_issue_mod_tree" model="ir.ui.view">
+			<field name="name">project.issue.modification.tree</field>
+			<field name="model">project.issue</field>
+			<field name="inherit_id" ref="project_issue.project_issue_tree_view"/>
+			<field name="arch" type="xml">
+				<xpath expr="//field[@name='name']" position="after">
+					<field name="x_type" />
+				</xpath>
+			</field>
+		</record>
+		
+		<record id="project_issue_mod_search" model="ir.ui.view">
+			<field name="name">project.issue.modification.search</field>
+			<field name="model">project.issue</field>
+			<field name="inherit_id" ref="project_issue.view_project_issue_filter" />
+			<field name="arch" type="xml">
+				<xpath expr="//filter[@name='Responsible']" position="before">
+					<filter string="Issue type" name="type" context="{'group_by':'x_type'}"/>
+				</xpath>
+				<xpath expr="//filter[@name='message_needaction']" position="after">
+					<filter string="Positive Feedback" name="positive" domain="[('x_type','=','positive')]" />
+					<filter string="Constructive Feedback" name="constructive" domain="[('x_type','=','constructive')]"/>
+					<filter string="Procedure Change" name="change" domain="[('x_type','=','change')]" />
+					<filter string="Complaint" name="complaint" domain="[('x_type','=','complaint')]" />
+				</xpath>
+			</field>
+		</record>
+		
+		<record id="action_view_issues" model="ir.actions.act_window">
+            <field name="res_model">project.issue</field>
+            <field name="view_type">form</field>
+            <field name="name">Improvement Log</field>
+            <field name="view_mode">tree,form,kanban,calendar,graph</field>
+            <field name="help" type="html">
+                <p>
+                    The Odoo issues tacker allows you to efficiently manage things
+                    like internal requests, software development bugs, customer
+                    complaints, project troubles, material breakdowns, etc.
+                </p>
+            </field>
+        </record>
+		
+	</data>
+</openerp>
