@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_tms_languages_user,tms_res_languages_user,model_tms_languages,tms_res.group_tms_user,1,0,0,0
+access_tms_language_group_user,tms_res_language_group_user,model_tms_language_group,tms_res.group_tms_user,1,0,0,0
+access_tms_languages_admin,tms_res_languages_admin,tms_res.model_tms_languages,tms_res.group_tms_admin,1,1,1,0
+access_tms_language_group_admin,tms_res_language_group_admin,tms_res.model_tms_language_group,tms_res.group_tms_admin,1,1,1,0

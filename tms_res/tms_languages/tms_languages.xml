@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+	<!-- Language UI Items -->
+		<record id="view_tms_languages_filter" model="ir.ui.view">
+			<field name="name">tms.languages.select</field>
+			<field name="model">tms.languages</field>
+			<field name="arch" type="xml">
+				<search string="Search TMS Languages">
+					<field name="name" string="Language Name" />
+					<field name="code" string="Language Code" />
+					<separator />
+					<filter string="Language Group" domain="[]" context="{'group_by':'group'}"/>
+				</search>
+			</field>
+		</record>
+	
+		<record id="action_tms_languages" model="ir.actions.act_window">
+			<field name="name">TMS Languages</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">tms.languages</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="search_view_id" ref="view_tms_languages_filter"/>
+			<field name="context">{}</field>
+			<field name="domain">[]</field>
+			<field name="help" type="html">
+				<p class="oe_view_nocontent_create">
+					Create a TMS Language.
+				</p><p>
+					These are used as the Languages for services in conjunction with the TMS addons.
+				</p>
+			</field>
+		</record>
+		
+		<menuitem name="TMS Languages"
+			id="menu_tms_languages"
+			parent="menu_tms"
+			action="action_tms_languages"
+			sequence="10"
+			groups="tms_res.group_tms_user"/>
+			
+		<record id="view_tms_languages_tree" model="ir.ui.view">
+			<field name="name">tms.languages.tree</field>
+			<field name="model">tms.languages</field>
+			<field name="priority">1</field>
+			<field name="arch" type="xml">
+				<tree string="TMS Languages">
+					<field name="name" />
+					<field name="code" />
+					<field name="group" />
+					<field name="trans_word" />
+					<field name="trans_page" />
+					<field name="trans_flat" />
+					<field name="proof_word" />
+					<field name="proof_flat" />
+				</tree>
+			</field>
+		</record>
+		
+		<record id="view_tms_languages_form" model="ir.ui.view">
+			<field name="name">tms.languages.form</field>
+			<field name="model">tms.languages</field>
+			<field name="arch" type="xml">
+				<form string="TMS Language">
+					<sheet>
+						<group>
+							<field name="name" />
+							<field name="code" />
+							<field name="group" />
+							<field name="override_rate_group" />
+						</group>
+						<group>
+							<group string="Translation Rates" attrs="{'invisible':[('override_rate_group','=',False)]}">
+								<field name="trans_word"  />
+								<field name="trans_page" />
+								<field name="trans_flat" />
+							</group>
+							<group string="Proofread Rates" attrs="{'invisible':[('override_rate_group','=',False)]}">
+								<field name="proof_word" />
+								<field name="proof_flat" />
+							</group>
+							<group string="Default vendor Rates" attrs="{'invisible':[('override_rate_group','=',False)]}">
+								<field name="trans_cost" />
+								<field name="trans_cost_flat" />
+								<field name="proof_cost" />
+								<field name="proof_cost_flat" />
+							</group>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+		
+
+			
+
+	
+	<!-- Language Rate UI items -->
+		<record id="view_tms_language_group_filter" model="ir.ui.view">
+			<field name="name">tms.language_group.select</field>
+			<field name="model">tms.language_group</field>
+			<field name="arch" type="xml">
+				<search string="Search TMS Languages">
+					<field name="name" string="Language Group Name" />
+					<separator />
+					<filter string="Language Group" domain="[]" context="{'group_by':'group'}"/>
+				</search>
+			</field>
+		</record>
+		
+		<record id="action_tms_language_group" model="ir.actions.act_window">
+			<field name="name">TMS Language Group</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">tms.language_group</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="search_view_id" ref="view_tms_language_group_filter"/>
+			<field name="context">{}</field>
+			<field name="domain">[]</field>
+			<field name="help" type="html">
+				<p class="oe_view_nocontent_create">
+					Create a TMS Language Group.
+				</p><p>
+					These are used as to define the Default Rates for Languages.
+				</p>
+			</field>
+		</record>
+		
+		<menuitem name="TMS Language Groups"
+			id="menu_tms_language_group"
+			parent="menu_tms"
+			action="action_tms_language_group"
+			sequence="11"
+			groups="tms_res.group_tms_user"/>
+			
+		<record id="view_tms_language_group_tree" model="ir.ui.view">
+			<field name="name">tms.language_group.tree</field>
+			<field name="model">tms.language_group</field>
+			<field name="priority">1</field>
+			<field name="arch" type="xml">
+				<tree string="TMS Language Groups">
+					<field name="name" />
+					<field name="trans_word" />
+					<field name="trans_page" />
+					<field name="trans_flat" />
+					<field name="proof_word" />
+					<field name="proof_flat" />
+					<field name="trans_cost" />
+					<field name="trans_cost_flat" />
+					<field name="proof_cost" />
+					<field name="proof_cost_flat" />
+				</tree>
+			</field>
+		</record>
+		
+		<record id="view_tms_language_group_form" model="ir.ui.view">
+			<field name="name">tms.language_group.form</field>
+			<field name="model">tms.language_group</field>
+			<field name="arch" type="xml">
+				<form string="TMS Language Group">
+					<sheet>
+						<group>
+							<field name="name" />
+						</group>
+						<group string="Translation Rates">
+							<field name="trans_word"  />
+							<field name="trans_page" />
+							<field name="trans_flat" />
+						</group>
+						<group string="Proofread Rates">
+							<field name="proof_word" />
+							<field name="proof_flat" />
+						</group>
+						<group string="Default vendor Rates">
+							<field name="trans_cost" />
+							<field name="trans_cost_flat" />
+							<field name="proof_cost" />
+							<field name="proof_cost_flat" />
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+		
+		
+
+</odoo>

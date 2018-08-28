@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data noupdate="1">
+	
+		<!--sequence for sale order line group-->
+		<record id="seq_sale_order_line_group" model="ir.sequence">
+			<field name="name">Sales Order Line Group</field>
+			<field name="code">sale.order.line.group</field>
+			<field name="padding">2</field>
+			<field name="company_id" eval="False"/>
+		</record>
+	</data>
+</odoo>

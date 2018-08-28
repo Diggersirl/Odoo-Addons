@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<record id="view_order_tms_sale_form" model="ir.ui.view">
+		<field name="name">sale.order.tms_sale.form</field>
+		<field name="model">sale.order</field>
+		<field name="inherit_id" ref="sale.view_order_form" />
+		<field name="arch" type="xml">
+			<xpath expr="//tree/field[@name='product_id']" position="before">
+				<field name="sol_group" readonly="1" options="{'no_open': True}"/>
+			</xpath>
+			<xpath expr="//tree/field[@name='product_uom_qty']" position="before">
+				<field name="update_linked" invisible="1" />
+				<field name="translation_service" invisible="1" />
+				<field name="source_lang" attrs="{'readonly':[('translation_service','=',False)], 'required':[('translation_service','=',True)]}" />
+				<field name="target_lang" attrs="{'readonly':[('translation_service','=',False)], 'required':[('translation_service','=',True)]}" />
+			</xpath>
+		</field>
+	</record>
+</odoo>

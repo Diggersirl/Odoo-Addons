@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data noupdate="1">
+		<record id="product_uom_categ_word" model="product.uom.categ">
+			<field name="name">Word</field>
+		</record>
+		
+		<record id="product_uom_categ_page" model="product.uom.categ">
+			<field name="name">Page</field>
+		</record>
+		
+		<record id="product_uom_categ_flat" model="product.uom.categ">
+			<field name="name">Flat</field>
+		</record>
+		<!--
+		Resource: product.uom
+		-->
+		<record id="product_uom_word" model="product.uom">
+			<field name="category_id" ref="product_uom_categ_word"/>
+			<field name="name">Word(s)</field>
+			<field name="factor" eval="1.0"/>
+			<field name="rounding" eval="0.001"/>
+		</record>
+		
+		<record id="product_uom_page" model="product.uom">
+			<field name="category_id" ref="product_uom_categ_page"/>
+			<field name="name">Page(s)</field>
+			<field name="factor" eval="1.0"/>
+			<field name="rounding" eval="0.001"/>
+		</record>
+		
+		<record id="product_uom_flat" model="product.uom">
+			<field name="category_id" ref="product_uom_categ_flat"/>
+			<field name="name">Flat</field>
+			<field name="factor" eval="1.0"/>
+			<field name="rounding" eval="1.0"/>
+		</record>
+	</data>
+</odoo>
