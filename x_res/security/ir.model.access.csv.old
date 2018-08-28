@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_x_res_x_res,Project Languages,x_res.model_x_res_languages,project.group_project_manager,1,1,1,0
+access_x_res_x_res_cat,CAT Tools,x_res.model_x_res_cat,project.group_project_manager,1,1,1,0
+access_x_res_x_res_langpairs,Language Pairs,x_res.model_x_res_languages_pairs,project.group_project_manager,1,1,1,1
+access_x_res_x_res_transstatus,Translator Status,x_res.model_x_res_translator_status,project.group_project_manager,1,1,1,0
