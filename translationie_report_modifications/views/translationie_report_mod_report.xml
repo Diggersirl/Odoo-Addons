@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+		
+		<template id="translationie_report_header_mod" inherit_id="report.external_layout_header">
+			<xpath expr="//div[@class='header']" position="replace">
+				<div class="header">
+					<div class="row" style="border-bottom: 1px solid black">
+						<img t-if="company.logo" t-att-src="'data:image/png;base64,%s' % company.logo" style="display:inline-block;float:left;width:200px;height:auto;" />
+						<div name="company_address" t-field="company.partner_id" t-field-options='{"widget": "contact", "fields": ["address", "name"], "no_marker":true}' style="float:right;display:inline-block;padding-top:15px;"/>
+					</div>
+				</div>
+			</xpath>
+		</template>
+		
+		
+	</data>
+</openerp>
